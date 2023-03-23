@@ -1,0 +1,39 @@
+.map {
+    height: 80vh;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.map-box {
+    width: 50%;
+    padding: 1%;
+}
+
+.pano-box {
+    height: 100%;
+    width: 50%;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#pano-viewer {
+    border: 1px solid red;
+    height: 80vh;
+    width: 100%;
+  }
+
+#controls {
+    width: 100%;
+    padding: 1%;
+}
+
+
+
+.page-container {
+    display: flex;
+    height: 100vh;
+    justify-content: space-around;
+
+}
