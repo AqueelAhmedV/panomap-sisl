@@ -5,25 +5,15 @@ $(document).ready(function () {
   const loadGeoJsons = async (locs) => {
     const detailedLocs = [];
     for (const loc of locs) {
-      const url = `http://dev.virtualearth.net/REST/v1/Locations/${loc.coords.join(
-        ","
-      )}?o=json&key=${bingMapsKey}`;
       try {
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-        const l = data.resourceSets[0].resources[0];
         const newFeature = {
           type: "Feature",
           properties: {
-            locationType: l.address.addressLine ?? l.name,
-            dataField: l.address.formattedAddress ?? l.address.adminDistrict,
-            country: l.address.countryRegion,
             panoImg: loc.panoImg,
           },
           geometry: {
             type: "Point",
-            coordinates: l.point.coordinates.slice(),
+            coordinates: [parseFloat(loc.coords[0]),parseFloat(loc.coords[1])],
           },
         };
         detailedLocs.push(newFeature);
